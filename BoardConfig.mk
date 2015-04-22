@@ -55,7 +55,7 @@ BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_SEPARATED_DT := true
+#BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 TARGET_KERNEL_SOURCE := kernel/yu/msm8916
@@ -151,7 +151,7 @@ endif
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/twrp.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_yu
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -205,3 +205,9 @@ endif
 
 # inherit from the proprietary version
 -include vendor/yu/tomato/BoardConfigVendor.mk
+
+#TWRP
+DEVICE_RESOLUTION := 720x1280
+TW_TARGET_USES_QCOM_BSP := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_INCLUDE_CRYPTO := true
